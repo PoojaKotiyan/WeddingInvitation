@@ -1,110 +1,83 @@
-const openBtn = document.getElementById("openBtn");
-const cover = document.getElementById("cover");
-const invitation = document.getElementById("invitation");
-const music = document.getElementById("weddingMusic");
-const musicBtn = document.getElementById("musicBtn");
+// ===== Premium opening =====
+            document.body.classList.add("locked");
+            const opening = document.getElementById("opening");
+            const enterBtn = document.getElementById("enterBtn");
+            const bgMusic = document.getElementById("bgMusic");
+            const musicBtn = document.getElementById("musicBtn");
 
-// Change this to your actual wedding date and local time.
-// India Standard Time is UTC+05:30.
-const weddingDate = new Date("2026-12-06T12:30:00+05:30");
+            enterBtn.addEventListener("click", () => {
+                opening.classList.add("opened");
+                setTimeout( () => {
+                    opening.classList.add("hide");
+                    document.body.classList.remove("locked");
+                }
+                , 950);
+                bgMusic.play().then( () => {
+                    musicBtn.textContent = "❚❚";
+                }
+                ).catch( () => {}
+                );
+            }
+            );
 
-// Replace this with the exact Google Maps share link for your venue.
-const mapUrl =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("Nicchalamakki Shree Tirumala Venkataramana Sabhabhavana");
+            setTimeout( () => {
+                if (!opening.classList.contains("opened")) {
+                    opening.classList.add("opened");
+                    setTimeout( () => {
+                        opening.classList.add("hide");
+                        document.body.classList.remove("locked");
+                    }
+                    , 950);
+                }
+            }
+            , 9000);
 
-document.getElementById("mapLink").href = mapUrl;
+            // ===== Wedding app settings =====
+            const WEDDING_DATE = new Date("2026-12-06T12:05:00+05:30");
 
-// Open the invitation
-openBtn.addEventListener("click", async () => {
-  invitation.classList.remove("hidden");
+            // Replace this with your exact Google Maps share URL when ready.
+            const MAP_URL = "https://www.google.com/maps/search/?api=1&query=Nicchalamakki%20Shree%20Tirumala%20Venkataramana%20Sabhabhavana%20Araseri";
+            document.getElementById("mapBtn").href = MAP_URL;
 
-  // Trigger the cover animation
-  requestAnimationFrame(() => {
-    cover.classList.add("closed");
-  });
+            function updateCountdown() {
+                const now = new Date();
+                const diff = WEDDING_DATE - now;
+                const ids = ["days", "hours", "minutes", "seconds"];
+                if (diff <= 0) {
+                    document.getElementById("countdown").innerHTML = '<div style="grid-column:1/-1;border:0"><strong>♥</strong><span>Today is the day!</span></div>';
+                    return;
+                }
+                const values = [Math.floor(diff / 86400000), Math.floor((diff / 3600000) % 24), Math.floor((diff / 60000) % 60), Math.floor((diff / 1000) % 60)];
+                ids.forEach( (id, i) => document.getElementById(id).textContent = String(values[i]).padStart(2, "0"));
+            }
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
 
-  // Browsers generally require a user interaction to start audio.
-  try {
-    await music.play();
-    musicBtn.textContent = "♫";
-  } catch (error) {
-    console.log("Tap the music button to start playback.");
-  }
+            document.getElementById("shareBtn").addEventListener("click", async () => {
+                const text = "💍 You’re invited! Join Raghavendra & Vidya for their wedding on 06 December 2026 at Nicchalamakki Shree Tirumala Venkataramana Sabhabhavana, Araseri. ❤️";
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: "Raghavendra & Vidya — Wedding Invitation",
+                            text,
+                            url: location.href
+                        });
+                    } catch (e) {}
+                } else {
+                    window.open("https://wa.me/?text=" + encodeURIComponent(text + " " + location.href), "_blank");
+                }
+            }
+            );
 
-  // Allow the page to scroll after the opening animation
-  setTimeout(() => {
-    cover.style.display = "none";
-  }, 1100);
-});
-
-// Music play/pause
-musicBtn.addEventListener("click", async () => {
-  if (music.paused) {
-    try {
-      await music.play();
-      musicBtn.textContent = "♫";
-    } catch (error) {
-      console.log("Music could not be played.", error);
-    }
-  } else {
-    music.pause();
-    musicBtn.textContent = "♪";
-  }
-});
-
-// Wedding countdown
-function updateCountdown() {
-  const now = new Date();
-  const remaining = weddingDate.getTime() - now.getTime();
-
-  if (remaining <= 0) {
-    document.getElementById("days").textContent = "0";
-    document.getElementById("hours").textContent = "0";
-    document.getElementById("minutes").textContent = "0";
-    document.getElementById("seconds").textContent = "0";
-    return;
-  }
-
-  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (remaining / (1000 * 60 * 60)) % 24
-  );
-  const minutes = Math.floor(
-    (remaining / (1000 * 60)) % 60
-  );
-  const seconds = Math.floor((remaining / 1000) % 60);
-
-  document.getElementById("days").textContent = days;
-  document.getElementById("hours").textContent =
-    String(hours).padStart(2, "0");
-  document.getElementById("minutes").textContent =
-    String(minutes).padStart(2, "0");
-  document.getElementById("seconds").textContent =
-    String(seconds).padStart(2, "0");
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// Share the invitation
-document.getElementById("shareBtn").addEventListener("click", async () => {
-  const shareData = {
-    title: "Wedding Invitation",
-    text: "You're invited to celebrate the wedding of Raghavendra & Vidya!",
-    url: window.location.href
-  };
-
-  try {
-    if (navigator.share) {
-      await navigator.share(shareData);
-    } else {
-      await navigator.clipboard.writeText(shareData.url);
-      alert("Invitation link copied!");
-    }
-  } catch (error) {
-    if (error.name !== "AbortError") {
-      alert("Please copy the website link from your browser.");
-    }
-  }
-});
+            document.getElementById("musicBtn").addEventListener("click", () => {
+                const audio = document.getElementById("bgMusic");
+                if (audio.paused) {
+                    audio.play().catch( () => {}
+                    );
+                    musicBtn.textContent = "❚❚";
+                } else {
+                    audio.pause();
+                    musicBtn.textContent = "♫";
+                }
+            }
+            );
