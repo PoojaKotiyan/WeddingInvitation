@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5a1725">
+  <title>Wedding Invitation | Raghavendra & Vidya</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Opening cover -->
+  <div class="cover" id="cover">
+    <div class="cover-card">
+      <p class="blessing">❀ With the blessings of our families ❀</p>
+      <div class="monogram">R <span>♥</span> V</div>
+      <p>Together with their families</p>
+      <h1>Raghavendra <br><span>&</span> <br>Vidya</h1>
+      <p class="date">06 · 12 · 2026</p>
+      <button id="openBtn">Open Invitation ↗</button>
+    </div>
+  </div>
+
+  <!-- Music starts after the guest opens the invitation -->
+  <audio id="weddingMusic" loop>
+    <source src="assets/audio/music.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musicBtn" class="music-btn" aria-label="Toggle music">♫</button>
+
+  <main id="invitation" class="hidden">
+
+    <section class="hero section">
+      <p class="blessing">❀ Shree Malikarjuna Swamya Prasannaha ❀</p>
+      <p class="blessing">❀ Shree Durga Parameshwari Prasanna ❀</p>
+      <div class="hero-monogram">R ♥ V</div>
+      <p>Together with their families</p>
+      <h1> Raghavendra<br> <span>&</span><br> Vidya </h1>
+      <p class="date">06 · 12 · 2026</p>
+      <p>Nichalamakki Shree Tirumala Venkataramana Sabha Bhavana · Asarkeri</p>
+      <a class="button" href="#events">View Wedding Details ↓</a>
+      <p class="scroll-note">Scroll to explore</p>
+    </section>
+
+    <section class="section story">
+      <p class="eyebrow">OUR BEGINNING</p>
+      <div class="ornament">❦</div>
+      <h2>Two hearts.<br>One beautiful journey.</h2>
+      <p>With the blessings of our families and the love of our dear friends, we invite you to be part of the day when our forever begins.</p>
+      <p class="quote">"In your eyes, I found my forever."</p>
+    </section>
+
+    <!--<section class="section gallery">
+      <p class="eyebrow">OUR MOMENTS</p>
+      <h2>A glimpse of our joy</h2>
+      <div class="photo-grid">
+        <img src="assets/images/photo1.jpg" alt="Couple photo one">
+        <img src="assets/images/photo2.jpg" alt="Couple photo two">
+        <img src="assets/images/photo3.jpg" alt="Couple photo three">
+      </div>
+      <p class="hint">Replace these sample filenames with your photos.</p>
+    </section> -->
+
+    <section class="section countdown-section">
+      <p class="eyebrow">THE COUNTDOWN BEGINS</p>
+      <h2>Counting every moment until we tie the "KNOT"</h2>
+      <div class="countdown">
+        <div><strong id="days">--</strong><span>Days</span></div>
+        <div><strong id="hours">--</strong><span>Hours</span></div>
+        <div><strong id="minutes">--</strong><span>Minutes</span></div>
+        <div><strong id="seconds">--</strong><span>Seconds</span></div>
+      </div>
+    </section>
+
+    <section class="section events" id="events">
+      <p class="eyebrow">THE CELEBRATION</p>
+      <h2>Wedding Events</h2>
+      <div class="event-card">
+        <div class="event-icon">❀</div>
+        <p class="date">06 DECEMBER 2026</p>
+        <h3>Wedding Ceremony</h3>
+        <p>Join us as we begin our beautiful journey together, surrounded by family and friends.</p>
+        <p>Sunday · Nichalamakki Shree Tirumala Venkataramana Sabhabhavana · Asarkeri</p>
+      </div>
+    </section>
+
+    <section class="section note">
+      <p class="eyebrow">A NOTE FROM US</p>
+      <h2>With love, we invite you</h2>
+      <p>Dear family and friends,</p>
+      <p>Two hearts, two families and one beautiful beginning. We would be delighted to have you with us as we celebrate our wedding.</p>
+      <p>Your presence, blessings and love will make our special day even more memorable.</p>
+      <p class="signature">With love,<br>Raghavendra & Vidya</p>
+    </section>
+
+    <section class="section venue">
+      <p class="eyebrow">COME CELEBRATE WITH US</p>
+      <h2>Wedding Venue</h2>
+      <div class="venue-card">
+        <div class="event-icon">📍</div>
+        <h3>Nichalamakki Shree Tirumala Venkataramana Sabhabhavana</h3>
+        <p>Asarkeri</p>
+        <a id="mapLink" class="button" href="#" target="_blank" rel="noopener">
+          Get Directions ↗
+        </a>
+      </div>
+    </section>
+
+    <section class="section share">
+      <p class="eyebrow">SPREAD THE LOVE</p>
+      <h2>Share our invitation</h2>
+      <p>Invite your loved ones with one tap.</p>
+      <button id="shareBtn">Share Invitation ↗</button>
+    </section>
+
+    <footer>
+      <div class="monogram">R <span>♥</span> V</div>
+      <p>Made with love for Raghavendra & Vidya</p>
+      <p>Wedding Invitation · 06 December 2026</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
