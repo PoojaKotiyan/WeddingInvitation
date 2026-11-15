@@ -36,7 +36,7 @@
             const WEDDING_DATE = new Date("2026-12-06T12:05:00+05:30");
 
             // Replace this with your exact Google Maps share URL when ready.
-            const MAP_URL = "https://www.google.com/maps/search/?api=1&query=Nicchalamakki%20Shree%20Tirumala%20Venkataramana%20Sabhabhavana%20Araseri";
+            const MAP_URL = "https://www.google.com/maps/search/?api=1&query=Nicchalamakki%20Shree%20Tirumala%20Venkataramana%20Sabhabhavana%20Asarkeri";
             document.getElementById("mapBtn").href = MAP_URL;
 
             function updateCountdown() {
@@ -54,13 +54,27 @@
             setInterval(updateCountdown, 1000);
 
             document.getElementById("shareBtn").addEventListener("click", async () => {
-                const text = "💍 You’re invited! Join Raghavendra & Vidya for their wedding on 06 December 2026 at Nicchalamakki Shree Tirumala Venkataramana Sabhabhavana, Araseri. ❤️";
+                const textMessage = `       💌  𝐖𝐄𝐃𝐃𝐈𝐍𝐆 𝐈𝐍𝐕𝐈𝐓𝐀𝐓𝐈𝐎𝐍 💌
+With immense joy, we invite you to celebrate
+    
+💍 𝐑𝐚𝐠𝐡𝐚𝐯𝐞𝐧𝐝𝐫𝐚 ❤️ 𝐕𝐢𝐝𝐲𝐚 💍
+
+📅 Date: 06 December 2026
+
+📍 Venue: Asarkeri
+
+Your presence and blessings will make our special day even more memorable! ❤️
+
+🙏 We look forward to celebrating with you! 🙏
+
+✨ 𝐂𝐥𝐢𝐜𝐤 𝐭𝐡𝐞 𝐥𝐢𝐧𝐤 𝐛𝐞𝐥𝐨𝐰 𝐭𝐨 𝐯𝐢𝐞𝐰 𝐨𝐮𝐫 𝐰𝐞𝐝𝐝𝐢𝐧𝐠 𝐢𝐧𝐯𝐢𝐭𝐚𝐭𝐢𝐨𝐧! ❤️
+`;
                 if (navigator.share) {
                     try {
                         await navigator.share({
                             title: "Raghavendra & Vidya — Wedding Invitation",
-                            text,
-                            url: location.href
+                            url: location.href,
+                            text: textMessage
                         });
                     } catch (e) {}
                 } else {
