@@ -54,7 +54,7 @@
             setInterval(updateCountdown, 1000);
 
             document.getElementById("shareBtn").addEventListener("click", async () => {
-                const textMessage = `       💌  𝐖𝐄𝐃𝐃𝐈𝐍𝐆 𝐈𝐍𝐕𝐈𝐓𝐀𝐓𝐈𝐎𝐍 💌
+                const text = `       💌  𝐖𝐄𝐃𝐃𝐈𝐍𝐆 𝐈𝐍𝐕𝐈𝐓𝐀𝐓𝐈𝐎𝐍 💌
 With immense joy, we invite you to celebrate
     
 💍 𝐑𝐚𝐠𝐡𝐚𝐯𝐞𝐧𝐝𝐫𝐚 ❤️ 𝐕𝐢𝐝𝐲𝐚 💍
@@ -73,8 +73,8 @@ Your presence and blessings will make our special day even more memorable! ❤�
                     try {
                         await navigator.share({
                             title: "Raghavendra & Vidya — Wedding Invitation",
-                            url: location.href,
-                            text: textMessage
+                            text,
+                            url: location.href
                         });
                     } catch (e) {}
                 } else {
