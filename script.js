@@ -54,14 +54,16 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 document.getElementById("shareBtn").addEventListener("click", async () => {
-    const text = `       💌  𝐖𝐄𝐃𝐃𝐈𝐍𝐆 𝐈𝐍𝐕𝐈𝐓𝐀𝐓𝐈𝐎𝐍 💌
-With immense joy, we invite you to celebrate
+    const text = `     ✨✨ 𝑴𝒂𝒏𝒊𝒌𝒂𝒏𝒏𝒂𝒚𝒂𝒏𝒂𝒎𝒂𝒏𝒆'𝒔 𝑾𝒆𝒅𝒅𝒊𝒏𝒈 𝑰𝒏𝒗𝒊𝒕𝒂𝒕𝒊𝒐𝒏 ✨✨
     
-💍 𝐑𝐚𝐠𝐡𝐚𝐯𝐞𝐧𝐝𝐫𝐚 ❤️ 𝐕𝐢𝐝𝐲𝐚 💍
+With immense joy and happiness, we cordially invite you & your family to wedding Ceremony of    
+ 𝐑𝐚𝐠𝐡𝐚𝐯𝐞𝐧𝐝𝐫𝐚 ❤️ 𝐕𝐢𝐝𝐲𝐚 
 
-📅 Date: 06 December 2026
+📅 Date: Sunday, 06 December 2026
 
-📍 Venue: Asarkeri
+📍 Venue: Nichalamakki Shri Tirumala Venkataramana Sabhabhavan, Asarkeri
+
+🕒 Muhurtham: 12-05 PM
 
 Your presence and blessings will make our special day even more memorable! ❤️
 
